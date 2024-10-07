@@ -72,7 +72,7 @@ body {
   display: flex;
   min-height: 100vh;
   gap: 2rem;
-  background-image: url("assets/img/page-bg.png");
+  background-image: url("/assets/img/page-bg.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
