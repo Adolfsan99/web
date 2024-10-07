@@ -1,0 +1,880 @@
+<html>
+
+<head>
+    <!--<base href="/">-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adolfo Sánchez López - Desarrollador Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --color-bg: #111111;
+            --color-container: #232323;
+            --color-accent: #22e18b;
+            --color-text: #ffffff;
+            /*--font-primary: 'Source Code Pro', monospace;*/
+            --font-primary: 'consolas', arial;
+            --font-size-base: 16px;
+            --spacing-unit: 1rem;
+            --border-radius: 4px;
+            --transition-speed: 0.3s;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #383838;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #555555;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(33, 226, 139);
+
+        }
+
+        i {
+            font-size: 1.5rem;
+        }
+
+        i:hover {
+            background: rgb(34, 225, 139);
+            color: rgb(35, 35, 35);
+            border-radius: 10px;
+            padding: 0.25rem;
+            transition: all 0.5s ease;
+        }
+
+        * {
+            text-wrap: wrap;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            padding: 0rem;
+            margin: 0rem;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            gap: 2rem;
+            background-image: url(/assets/img/page-bg.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: var(--color-container);
+            width: 250px;
+            padding: 0.5rem;
+            transition: transform var(--transition-speed) ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                overflow-y: auto;
+                background-color: var(--color-container);
+                width: 250px;
+                padding: 0.5rem;
+                transition: transform var(--transition-speed) ease;
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.75);
+            }
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .navegacion__elemento {
+            margin-bottom: 5px;
+            width: 100%;
+        }
+
+        .navegacion__elemento a {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 900;
+            border-radius: 20px;
+            color: var(--color-accent);
+            width: auto;
+            transition: all 0.5s ease;
+            padding: 2px 10px;
+            text-decoration: none;
+            border: 2px solid transparent;
+        }
+
+        .navegacion__elemento a:hover {
+            background: rgb(34, 225, 139);
+            color: rgb(35, 35, 35);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .navegacion__elemento a:hover,
+        .navegacion__elemento li.active a {
+            background: rgb(33, 226, 139);
+            color: rgb(35, 35, 35);
+            font-size: 0.85rem;
+            border-radius: 10px;
+            padding: 10px;
+            border: none;
+        }
+
+        .navegacion__lista {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0.5rem 0.5rem;
+            width: 100%;
+        }
+
+        nav ul li {
+            margin: 0rem;
+            font-size: 0.75rem;
+        }
+
+        nav ul li a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color var(--transition-speed) ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-text);
+        }
+
+        .cabecera__logo {
+            max-width: 100px;
+            margin: 1rem 0rem 1rem 0rem;
+            display: block;
+        }
+
+        .cabecera__titulo {
+            font-size: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .rol {
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .rol {
+                display: block;
+                margin-top: 1rem;
+            }
+
+            .content-box {
+                padding: 2rem;
+            }
+        }
+
+        .presentacion__foto {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: var(--spacing-unit);
+            box-shadow: 2px 0 10px #22e18bbf;
+        }
+
+        .presentacion {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .formacion__elemento {
+            background: #222222;
+            padding: 2rem;
+            border-radius: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .habilidades__icono {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0.5rem;
+        }
+
+        .habilidades__nombre {
+            margin: 0;
+        }
+
+        .formacion__icono {
+            width: 60px;
+            height: 60px;
+        }
+
+        .experiencia__icono {
+            width: 60px;
+            height: 60px;
+        }
+
+        .content-box {
+            padding: 1rem;
+            margin-bottom: 2rem;
+            background-color: var(--color-container);
+            border-radius: var(--border-radius);
+            background: transparent;
+        }
+
+        .redes__img img {
+            width: 2rem;
+            height: 2rem;
+            vertical-align: middle;
+            margin-left: 0.5rem;
+        }
+
+        .redes__img a {
+            display: flex;
+            align-items: center;
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .redes__img a:hover {
+            color: var(--color-text);
+        }
+
+        .redes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .hamburger {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1001;
+            background-color: transparent;
+            color: var(--color-accent);
+            border: none;
+            border-radius: 20%;
+            width: 3rem;
+            height: 3rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .hamburger:hover {
+            background-color: var(--color-accent);
+            color: var(--color-bg);
+        }
+
+        main {
+            margin-left: calc(250px + 3rem);
+            width: calc(100% - 250px - 3rem);
+            padding-top: 2rem;
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                transform: translateX(-100%);
+                width: 100%;
+                max-width: 250px;
+            }
+
+            nav.active {
+                transform: translateX(0);
+                overflow: auto;
+            }
+
+            main {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 769px) {
+            nav {
+                transform: translateX(0);
+                width: 250px;
+                left: 2rem;
+            }
+
+            main {
+                margin-left: calc(250px + 4rem);
+                width: calc(100% - 250px - 4rem);
+                padding-top: 0;
+            }
+
+            .inicio {
+                min-height: calc(100vh - 2rem);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+            }
+
+            .inicio,
+            .sobre-mi,
+            .habilidades,
+            .proyectos,
+            .formacion,
+            .experiencia,
+            .contacto {
+                padding: 0rem 10%;
+            }
+
+        }
+
+        .contacto__formulario {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contacto__campo {
+            padding: 0.8rem;
+            border: none;
+            border-radius: var(--border-radius);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-primary);
+            box-shadow: 2px 0 10px #22e18bbf;
+            border-radius: 1rem;
+        }
+
+        .contacto__campo--textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contacto__boton {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            background-color: var(--color-accent);
+            color: var(--color-bg);
+            font-family: var(--font-primary);
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .contacto__boton:hover {
+            background-color: var(--color-text);
+            color: var(--color-bg);
+        }
+
+        .typing::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .sobre-mi .presentacion {
+            margin-bottom: 2rem;
+        }
+
+        .sobre-mi__titulo {
+            margin-top: 2rem;
+        }
+
+        .habilidades__lista {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .habilidades__elemento {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .journey {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .journey::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 15px;
+            width: 2px;
+            background-color: var(--color-accent);
+        }
+
+        .journey-item {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .journey-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            width: 16px;
+            height: 16px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .journey-content {
+            background-color: rgba(34, 225, 139, 0.1);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .journey-content h3 {
+            margin-top: 0;
+            color: var(--color-accent);
+        }
+
+        .redes {
+            margin: 0;
+        }
+
+        .redes__img {
+            margin-bottom: 1rem;
+        }
+
+        .redes__img img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .proyectos__boton {
+            display: block;
+            margin: 2rem auto;
+            padding: 1rem 2rem;
+            background-color: var(--color-accent);
+            color: var(--color-bg);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease;
+            font-weight: 600;
+            background: rgb(33, 226, 139);
+            border-radius: 20px;
+        }
+
+        .proyectos__boton:hover {
+            background-color: var(--color-text);
+        }
+
+        .section-title {
+            color: var(--color-accent);
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+            margin-top: 4rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--color-accent);
+        }
+
+        .mas-info-btn {
+            background-color: var(--color-accent);
+            color: var(--color-bg);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease;
+            font-weight: 800;
+            background: rgb(33, 226, 139);
+            border-radius: 20px;
+        }
+
+        .mas-info-btn:hover {
+            background: white;
+            color: black;
+        }
+
+        .hidden-info {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .formacion__icono,
+        .experiencia__icono {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"><button class="hamburger" id="hamburger">☰</button>
+        <nav id="nav"><img class="cabecera__logo" src="assets/img/logo.png" alt="Logo">
+            <h1 class="cabecera__titulo">Adolfo Sánchez López</h1>
+            <ul class="rol">
+                <li class="rol__elemento" id="typed-roles"></li>
+            </ul>
+            <ul class="navegacion__lista">
+                <li class="navegacion__elemento"><a href="#inicio">Inicio</a></li>
+                <li class="navegacion__elemento"><a href="#sobre-mi">Sobre mí</a></li>
+                <li class="navegacion__elemento"><a href="#habilidades">Habilidades y servicios</a></li>
+                <li class="navegacion__elemento"><a href="#proyectos">Portafolio y proyectos</a></li>
+                <li class="navegacion__elemento"><a href="#formacion">Formación y certificaciones</a></li>
+                <li class="navegacion__elemento"><a href="#experiencia">Experiencia profesional</a></li>
+                <li class="navegacion__elemento"><a href="#contacto">Contacto</a></li>
+            </ul>
+            <ul class="redes">
+
+                <li class="redes__img">
+                    <a href="https://www.linkedin.com/in/adolfosanchezlopez/" target="_blank" alt="Cuenta de Linkedin">
+                        <i class=" fa-brands fa-linkedin"></i>
+                    </a>
+                </li>
+
+                <li class="redes__img">
+                    <a href="https://github.com/Adolfsan99" target="_blank" alt="Cuenta de Github">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </li>
+
+                <li class="redes__img">
+                    <a href="https://www.behance.net/adolfosanchezlopez" target="_blank" alt="Cuenta de Behance">
+                        <i class="fa-brands fa-behance"></i>
+                    </a>
+                </li>
+
+                <li class="redes__img">
+                    <a href="https://wa.me/+573104679562" target="_blank" alt="Numero de WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </li>
+
+                <li class="redes__img">
+                    <a href="mailto:sanchezlopezadolfo@gmail.com" target="_blank" alt="Correo Electronico">
+                        <i class="fa fa-at"></i>
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="creditos">
+                <li>Creado por Adolfo Sánchez López.</li>
+                <li>Todos los derechos reservados</li>
+                <li>Copyright <span id="current-year"></span></li>
+            </ul>
+        </nav>
+        <main>
+            <section class="inicio content-box" id="inicio">
+                <h2 class="inicio__titulo section-title">Bienvenid@</h2>
+                <p class="inicio__texto">Descubre cómo pasé de ser un principiante en programación a un desarrollador
+                    apasionado. Mi viaje está lleno de desafíos superados, habilidades adquiridas y sueños cumplidos.
+                    Prepárate para inspirarte y ver cómo la perseverancia puede transformar una vida.</p>
+            </section>
+            <section class="sobre-mi content-box" id="sobre-mi">
+                <h2 class="section-title">Sobre mí</h2>
+                <div class="presentacion"><img class="presentacion__foto" src="assets/img/profile.jpg"
+                        alt="Foto de perfil">
+
+                    <div class="presentacion__contenedor">
+                        <h2 class="presentacion__titulo">Hola, mi nombre es Adolfo Sánchez López y construyo páginas web
+                        </h2>
+                        <p class="presentacion__subtitulo">Soy formado en... lorem ipsum sit amet consectetur y
+                            actualmente estoy participando del proyecto Oracle ONE en Adolfo Sánchez López.</p>
+                    </div>
+                </div>
+                <!--<p class="sobre-mi__texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque velit
+                    velit, volutpat semper dignissim dictum, imperdiet ut lacus. Quisque gravida ex a mattis pretium.
+                    Suspendisse potenti. Ut semper sagittis ligula et lacinia.</p>
+                <p class="sobre-mi__texto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque velit
+                    velit, volutpat semper dignissim dictum, imperdiet ut lacus. Quisque gravida ex a mattis pretium.
+                    Suspendisse potenti. Ut semper sagittis ligula et lacinia. Aenean sit amet felis venenatis, egestas
+                    metus vitae, aliquet metus.</p>-->
+            </section>
+            <section class="habilidades content-box" id="habilidades">
+                <h2 class="section-title">Habilidades y servicios</h2>
+                <ul class="habilidades__lista">
+                    <li class="habilidades__elemento"><img class="habilidades__icono" src="assets2/logos/htlm.png"
+                            alt="HTML">
+                        <p class="habilidades__nombre">HTML 5</p>
+                    </li>
+                    <li class="habilidades__elemento"><img class="habilidades__icono" src="assets2/logos/js_icon.png"
+                            alt="JavaScript">
+                        <p class="habilidades__nombre">JavaScript</p>
+                    </li>
+                    <li class="habilidades__elemento"><img class="habilidades__icono" src="assets2/logos/php_icon.png"
+                            alt="PHP">
+                        <p class="habilidades__nombre">PHP</p>
+                    </li>
+                    <li class="habilidades__elemento"><img class="habilidades__icono"
+                            src="assets2/logos/nodejs_icon.png" alt="Node.js">
+                        <p class="habilidades__nombre">Node.js</p>
+                    </li>
+                    <li class="habilidades__elemento"><img class="habilidades__icono" src="assets2/logos/react_icon.png"
+                            alt="React">
+                        <p class="habilidades__nombre">React</p>
+                    </li>
+                    <li class="habilidades__elemento"><img class="habilidades__icono" src="assets2/logos/css_icon.png"
+                            alt="CSS">
+                        <p class="habilidades__nombre">CSS</p>
+                    </li>
+                </ul>
+            </section>
+            <section class="proyectos content-box" id="proyectos">
+                <h2 class="section-title">Portafolio y proyectos</h2><button class="proyectos__boton">Ver
+                    proyectos</button>
+            </section>
+            <section class="formacion content-box" id="formacion">
+                <h2 class="section-title">Formación y certificaciones</h2>
+                <div class="journey">
+                    <div class="journey-item">
+                        <div class="journey-content"><img class="formacion__icono" src="/assets/icons/placeholder.png"
+                                alt="Análisis de datos">
+                            <h3>Análisis de datos</h3>
+                            <p>2018 - UFPR</p><button class="mas-info-btn">Más información</button>
+                            <div class="hidden-info">
+                                <p>Información adicional sobre el análisis de datos...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-content"><img class="formacion__icono" src="/assets/icons/placeholder.png"
+                                alt="UX Design">
+                            <h3>Formación en UX Design</h3>
+                            <p>2019 - Alura</p><button class="mas-info-btn">Más información</button>
+                            <div class="hidden-info">
+                                <p>Información adicional sobre la formación en UX Design...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-content"><img class="formacion__icono" src="/assets/icons/placeholder.png"
+                                alt="Diseño">
+                            <h3>Posgrado en diseño</h3>
+                            <p>En curso - UFRJ</p><button class="mas-info-btn">Más información</button>
+                            <div class="hidden-info">
+                                <p>Información adicional sobre el posgrado en diseño...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="experiencia content-box" id="experiencia">
+                <h2 class="section-title">Experiencia profesional</h2>
+                <div class="journey">
+                    <div class="journey-item">
+                        <div class="journey-content"><img class="experiencia__icono" src="/assets/icons/placeholder.png"
+                                alt="Desarrollador Web Junior">
+                            <h3>Desarrollador Junior</h3>
+                            <p>2020 - 2021</p>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt quisquam unde
+                                repudiandae fugiat, earum temporibus!</p><button class="mas-info-btn">Más
+                                información</button>
+                            <div class="hidden-info">
+                                <p>Información adicional sobre la experiencia como Desarrollador Junior...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-content"><img class="experiencia__icono" src="/assets/icons/placeholder.png"
+                                alt="Desarrollador Web Full-Stack">
+                            <h3>Desarrollador Full-Stack</h3>
+                            <p>2021 - Presente</p>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt quisquam unde
+                                repudiandae fugiat, earum temporibus!</p><button class="mas-info-btn">Más
+                                información</button>
+                            <div class="hidden-info">
+                                <p>Información adicional sobre la experiencia como Desarrollador Full-Stack...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="contacto content-box" id="contacto">
+                <h2 class="section-title">Contacto</h2>
+                <form class="contacto__formulario"><input class="contacto__campo" type="text" placeholder="Nombre"
+                        required><input class="contacto__campo" type="email" placeholder="Correo Electrónico"
+                        required><textarea class="contacto__campo contacto__campo--textarea" placeholder="Mensaje"
+                        required></textarea><button class="contacto__boton" type="submit">Enviar</button></form>
+            </section>
+        </main>
+    </div>
+    <script>
+
+
+
+
+        // Obtener el elemento donde se mostrará el año
+        const yearElement = document.getElementById("current-year");
+
+        // Obtener el año actual
+        const currentYear = new Date().getFullYear();
+
+        // Actualizar el contenido del elemento con el año actual
+        yearElement.textContent = currentYear;
+
+
+
+
+
+
+        const hamburger = document.getElementById("hamburger");
+        const nav = document.getElementById("nav");
+        const links = document.querySelectorAll(".navegacion__elemento a"); // Seleccionamos todos los enlaces dentro de los <li>
+
+        // Evento del botón "hamburger" para alternar el menú
+        hamburger.addEventListener("click", () => {
+            nav.classList.toggle("active");
+            hamburger.textContent = nav.classList.contains("active") ? "×" : "☰";
+        });
+
+        // Añadimos un evento a todos los enlaces para que oculten el menú al hacer clic
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                if (nav.classList.contains("active")) {
+                    nav.classList.remove("active"); // Oculta el menú
+                    hamburger.textContent = "☰"; // Cambia el icono del "hamburger" a su estado original
+                }
+            });
+        });
+
+        // Cierra el menú si se hace clic fuera de él
+        document.addEventListener("click", (event) => {
+            const isClickInside = nav.contains(event.target) || hamburger.contains(event.target);
+            if (!isClickInside && nav.classList.contains("active") && window.innerWidth <= 768) {
+                nav.classList.remove("active");
+                hamburger.textContent = "☰";
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) {
+                nav.classList.remove("active");
+                hamburger.textContent = "☰";
+            }
+        });
+
+
+
+
+
+
+        const roles = [
+            "Desarrollador Front-End",
+            "Desarrollador Full-Stack",
+            "Productor Multimedia",
+        ];
+        const typedRolesElement = document.getElementById("typed-roles");
+        let roleIndex = 0;
+        let charIndex = 0;
+        function typeRole() {
+            if (charIndex < roles[roleIndex].length) {
+                typedRolesElement.textContent += roles[roleIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeRole, 100);
+            } else {
+                setTimeout(eraseRole, 3000);
+            }
+        }
+        function eraseRole() {
+            if (charIndex > 0) {
+                typedRolesElement.textContent = roles[roleIndex].substring(
+                    0,
+                    charIndex - 1
+                );
+                charIndex--;
+                setTimeout(eraseRole, 50);
+            } else {
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeRole, 500);
+            }
+        }
+        typedRolesElement.classList.add("typing");
+        typeRole();
+        document.querySelectorAll(".mas-info-btn").forEach((button) => {
+            button.addEventListener("click", function () {
+                const hiddenInfo = this.nextElementSibling;
+                hiddenInfo.style.display =
+                    hiddenInfo.style.display === "block" ? "none" : "block";
+            });
+        });
+    </script>
+</body>
+
+</html>
