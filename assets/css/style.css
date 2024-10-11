@@ -33,6 +33,7 @@ h1 {
 }
 h2 {
   font-size: 2rem;
+  text-align: center;
 }
 h3 {
   margin-top: 1rem;
@@ -624,9 +625,6 @@ main {
 .proyectos__navegacion {
   background-color: transparent;
   padding: 0.5rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 .proyectos__navegacion ul {
@@ -634,12 +632,13 @@ main {
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .proyectos__navegacion ul li {
-  margin: 0.5rem;
+    display: flex;
+    margin: 4px;
 }
 
 .proyectos__navegacion ul li a {
@@ -649,6 +648,7 @@ main {
   border-radius: 20px;
   transition: all 0.3s ease;
   background-color: rgba(255, 255, 255, 0.1);
+  text-align: center;
 }
 
 .proyectos__navegacion ul li a:hover,
@@ -681,6 +681,7 @@ main {
   width: 100%;
   height: 250px;
   object-fit: cover;
+  background-color: #000000;
 }
 
 .project-content {
@@ -873,5 +874,9 @@ main {
   .habilidades__lista li {
     flex: 0 0 calc(50% - 5px);
     max-width: calc(50% - 5px);
+  }
+
+  .proyectos__navegacion {
+    display: inline;
   }
 }
