@@ -203,7 +203,7 @@ nav ul li a:hover {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  box-shadow: rgba(34, 225, 139, 0.3) 0px 6px 24px;
+  box-shadow: rgb(255 255 255 / 50%) 0px 6px 24px;
   margin: 2rem;
   margin-bottom: 0rem;
 }
@@ -349,6 +349,7 @@ main {
 }
 .sobre-mi .presentacion {
   margin-bottom: 2rem;
+  text-align: center;
 }
 .sobre-mi__titulo {
   margin-top: 2rem;
@@ -753,6 +754,7 @@ main {
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+    background-color: black;
   }
   nav {
     transform: translateX(-100%);
