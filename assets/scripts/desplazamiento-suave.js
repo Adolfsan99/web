@@ -40,6 +40,16 @@ function highlightCurrentSection() {
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
+    // Ignorar los enlaces específicos
+    if (
+      this.getAttribute("href") === "#sitios-web" ||
+      this.getAttribute("href") === "#diseno-grafico" ||
+      this.getAttribute("href") === "#proyectos-colaborativos" ||
+      this.getAttribute("href") === "#proyectos-personales"
+    ) {
+      return; // Salir sin hacer nada
+    }
+
     e.preventDefault();
     const target = document.querySelector(this.getAttribute("href"));
     smoothScroll(target);
