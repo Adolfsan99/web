@@ -20,6 +20,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 <body>
@@ -35,6 +36,7 @@
             <h1 class="cabecera__titulo">Adolfo Sánchez López</h1>
             <ul class="navegacion__lista">
                 <!--<li class="navegacion__elemento"><a href="#inicio">Inicio</a></li>-->
+                <li class="navegacion__elemento"><a href="#inicio">Inicio</a></li>
                 <li class="navegacion__elemento"><a href="#sobre-mi">Sobre mí</a></li>
                 <li class="navegacion__elemento"><a href="#habilidades">Habilidades y servicios</a></li>
                 <li class="navegacion__elemento"><a href="#proyectos">Portafolio y proyectos</a></li>
@@ -379,9 +381,9 @@
                 <div id="main-content">
                     <div id="home"></div>
 
-                    <!--<div class="category-selection">
-                        <p>Seleccione una categoría para ver los proyectos.</p>
-                    </div>-->
+                    <div class="category-selection">
+                        <p style="font-size: 1rem;">Seleccione una categoría para ver los proyectos.</p>
+                    </div>
                     <!--<div id="proyectos-limpio" class="category">
                     </div>-->
 
@@ -907,38 +909,40 @@
                 </div>
             </section>
 
-
             <div class="espacio"></div>
-            <div class="separador" id="contacto"></div>
-            <section class="contacto content-box">
+            <section class="contacto content-box" id="contacto">
+                <div class="separador"></div>
                 <h2 class="section-title">Contacto</h2>
                 <button class="mas-info-btn">Trabaja conmigo</button>
                 <div class="hidden-info">
                     <form class="contacto__formulario" id="contactForm">
 
                         <!-- Saludo inicial personalizado -->
+                        <label>Saludo inicial personalizado (opcional):</label>
                         <input class="contacto__campo" type="text" id="saludo" placeholder="Saludo inicial (opcional)">
 
                         <!-- Nombre del reclutador -->
+                        <label>Nombre y apellido: <span style="color: #22b46d;">(obligatorio)</span></label>
                         <input class="contacto__campo" type="text" id="nombre_reclutador"
                             placeholder="Nombre y apellido" required>
 
                         <!-- Empresa -->
+                        <label>Empresa: <span style="color: #22b46d;">(obligatorio)</span></label>
                         <input class="contacto__campo" type="text" id="empresa" placeholder="Empresa" required>
 
                         <!-- Cargo buscado -->
-                        <label for="cargo">Cargo buscado:</label>
+                        <label for="cargo">Cargo buscado: <span style="color: #22b46d;">(obligatorio)</span></label>
                         <select class="contacto__campo" id="cargo" required>
                             <option value="">Selecciona un cargo</option>
                             <option value="Diseñador Gráfico">Diseñador Gráfico</option>
                             <option value="Diseñador Web">Diseñador Web</option>
-                            <option value="Editor de Video">Editor de Video</option>
-                            <option value="Gestor de Contenidos">Gestor de Contenidos</option>
-                            <option value="Productor Multimedia">Productor multimedia</option>
-                            <option value="Marketing digital">Marketing digital</option>
                             <option value="Desarrollador Front-end">Desarrollador (Front-end)</option>
                             <option value="Desarrollador Back-end">Desarrollador (Back-end)</option>
                             <option value="Desarrollador Fullstack">Desarrollador (Fullstack)</option>
+                            <option value="Marketing digital">Marketing digital</option>
+                            <option value="Productor Multimedia">Productor multimedia</option>
+                            <option value="Editor de Video">Editor de Video</option>
+                            <option value="Gestor de Contenidos">Gestor de Contenidos</option>
                             <option value="Otro">Otro</option>
                         </select>
                         <!-- Campo de texto si selecciona "Otro" -->
@@ -946,7 +950,8 @@
                             style="display:none;">
 
                         <!-- Tipo de contrato -->
-                        <label for="contrato">Tipo de contrato:</label>
+                        <label for="contrato">Tipo de contrato: <span
+                                style="color: #22b46d;">(obligatorio)</span></label>
                         <select class="contacto__campo" id="contrato" required>
                             <option value="">Selecciona un tipo de contrato</option>
                             <option value="Indefinido">Indefinido</option>
@@ -958,14 +963,16 @@
                         </select>
 
                         <!-- Salario ofrecido y tipo de moneda -->
-                        <label for="salario">Salario ofrecido:</label>
+                        <label for="salario">Salario ofrecido: <span
+                                style="color: #22b46d;">(obligatorio)</span></label>
                         <input class="contacto__campo" type="number" id="salario" placeholder="Salario ofrecido"
                             required>
                         <input class="contacto__campo" type="text" id="moneda"
                             placeholder="Tipo de moneda (Ej. USD, COP)" required>
 
                         <!-- Modalidad de trabajo -->
-                        <label for="modalidad">Modalidad de trabajo:</label>
+                        <label for="modalidad">Modalidad de trabajo: <span
+                                style="color: #22b46d;">(obligatorio)</span></label>
                         <select class="contacto__campo" id="modalidad" required>
                             <option value="">Selecciona una modalidad</option>
                             <option value="Remoto">Remoto</option>
@@ -974,20 +981,23 @@
                         </select>
 
                         <!-- Beneficios ofrecidos -->
+                        <label>Beneficios ofrecidos: <span style="color: #22b46d;">(obligatorio)</span></label>
                         <textarea class="contacto__campo contacto__campo--textarea" id="beneficios"
                             placeholder="Beneficios ofrecidos" required></textarea>
 
                         <!-- Requisitos del cargo -->
+                        <label>Requisitos del cargo: <span style="color: #22b46d;">(obligatorio)</span></label>
                         <textarea class="contacto__campo contacto__campo--textarea" id="requisitos"
                             placeholder="Requisitos del cargo (Ej. Manejo de Ilustraitor, Wordpress, Inglés B1)"
                             required></textarea>
 
-                        <!-- Mensaje adicional (opcional))-->
+                        <!-- Mensaje adicional (opcional) -->
+                        <label>Información adicional (opcional):</label>
                         <textarea class="contacto__campo contacto__campo--textarea" id="mensaje_personalizado"
                             placeholder="Información adicional (opcional) (Ej. Instrucciónes, Condiciones, Llamada a la acción, etc)"></textarea>
 
                         <!-- Menú para elegir el método de envío -->
-                        <label for="envio">Enviar por:</label>
+                        <label for="envio">Enviar por: <span style="color: #22b46d;">(obligatorio)</span></label>
                         <select class="contacto__campo" id="envio" required>
                             <option value="">Selecciona un método de envío</option>
                             <option value="email">Correo Electrónico</option>
@@ -997,6 +1007,7 @@
                         <!-- Botón de envío -->
                         <button class="contacto__boton" type="submit">Enviar</button>
                     </form>
+
                 </div>
             </section>
 
@@ -1032,16 +1043,22 @@
 
 
             <div class="separador"></div>
-            <section class="creditos">
+            <div style="text-align: center;">
                 Creado por <span>Adolfo Sánchez López.</span></li>
                 Todos los derechos reservados</li>
-                Copyright <span>2022-</span><span id="current-year"></span></>
-            </section>
+                Copyright <span>2022-</span><span id="current-year"></span>
+            </div>
 
-
+            <div class="espacio"></div>
+            <div class="espacio"></div>
+            <div class="espacio"></div>
+            <div class="espacio"></div>
+            <div class="espacio"></div>
         </main>
     </div>
 </body>
+
+<script src="assets/scripts/desplazamiento-suave.js"></script>
 <script src="assets/scripts/confirmacion-enlaces.js"></script>
 <script src="assets/scripts/fecha-actual.js"></script>
 <script src="assets/scripts/formulario.js"></script>

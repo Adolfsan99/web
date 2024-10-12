@@ -149,14 +149,13 @@ nav ul {
   border: 2px solid transparent;
 }
 .navegacion__elemento a:hover {
-  background: rgb(34, 225, 139);
-  color: rgb(35, 35, 35);
+  background: transparent;
+  color: white;
   border-radius: 10px;
   padding: 10px;
 }
-.navegacion__elemento a:hover,
-.navegacion__elemento li.active a {
-  background: rgb(33, 226, 139);
+.navegacion__elemento.active {
+  background: rgb(0 0 0 / 40%);
   color: rgb(35, 35, 35);
   font-size: 0.85rem;
   border-radius: 10px;
@@ -637,8 +636,8 @@ main {
 }
 
 .proyectos__navegacion ul li {
-    display: flex;
-    margin: 4px;
+  display: flex;
+  margin: 4px;
 }
 
 .proyectos__navegacion ul li a {
@@ -756,6 +755,8 @@ main {
   .hamburger {
     display: block;
     background-color: black;
+    position: fixed;
+    left: 90%;
   }
   nav {
     transform: translateX(-100%);
@@ -878,5 +879,9 @@ main {
 
   .proyectos__navegacion {
     display: inline;
+  }
+
+  section.creditos {
+    text-align: center;
   }
 }

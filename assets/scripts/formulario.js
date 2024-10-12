@@ -3,6 +3,14 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault(); // Evita que el formulario se envíe
 
+    // Verifica el número de formularios enviados
+    let formulariosEnviados = localStorage.getItem("formulariosEnviados") || 0;
+
+    if (formulariosEnviados >= 2) {
+      alert("Has alcanzado el límite de formularios que puedes enviar.");
+      return; // Impide el envío si el límite se ha alcanzado
+    }
+
     // Obtener los valores de los campos del formulario
     let nombreReclutador = document.getElementById("nombre_reclutador").value;
     let empresa = document.getElementById("empresa").value;
@@ -47,6 +55,12 @@ document
       )}`;
       window.open(whatsappLink, "_blank");
     }
+
+    // Incrementa el contador de formularios enviados
+    localStorage.setItem(
+      "formulariosEnviados",
+      parseInt(formulariosEnviados) + 1
+    );
   });
 
 // Mostrar el campo de texto si se selecciona "Otro" en el menú de cargos
